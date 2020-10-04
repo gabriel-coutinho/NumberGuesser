@@ -2,25 +2,20 @@ package com.gabrielcoutinho.numberguesser.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
-
 import com.gabrielcoutinho.numberguesser.domain.Match;
 
-public class MatchDTO implements Serializable{
+public class MatchReturnDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	@NotEmpty(message="Preenchimento obrigatório")
 	private String player;
 	private Integer attemptsNum;
 	private Integer matchNum;
-	@Positive(message="Duração da partida não pode ser negativa")
-	private Long time;
+	private String time;
 	
-	public MatchDTO() {
+	public MatchReturnDTO() {
 	}
 	
-	public MatchDTO(Match obj) {
+	public MatchReturnDTO(Match obj) {
 		this.player = obj.getPlayer();
 		this.attemptsNum = obj.getAttemptsNum();
 		this.matchNum = obj.getMatchNum();
@@ -51,12 +46,11 @@ public class MatchDTO implements Serializable{
 		this.matchNum = matchNum;
 	}
 
-	public Long getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Long time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
-	
 }

@@ -1,11 +1,13 @@
 package com.gabrielcoutinho.numberguesser.domain;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Match implements Serializable{
@@ -15,19 +17,28 @@ public class Match implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String player;
+	
+	@OneToOne(mappedBy = "match")
+	private Rank rank;
+	
+	
 	private Integer attemptsNum;
 	private Integer matchNum;
-	private Long time;
+	private Long timeStart;
+	private Long timeFinish;
+	private Long timeSecs;
 	
 	public Match() {
 	}
 
-	public Match(String player, Integer attemptsNum, Integer matchNum, Long time) {
+	public Match(String player, Integer attemptsNum, Integer matchNum, Long timeStart, Long timeFinish) {
 		super();
 		this.player = player;
 		this.attemptsNum = attemptsNum;
 		this.matchNum = matchNum;
-		this.time = time;
+		this.timeStart = timeStart;
+		this.timeFinish = timeFinish;
+		this.generateTimeSecs(timeStart, timeFinish);
 	}
 
 	public Integer getId() {
@@ -61,13 +72,46 @@ public class Match implements Serializable{
 	public void setMatchNum(Integer matchNum) {
 		this.matchNum = matchNum;
 	}
-
-	public Long getTime() {
-		return time;
+	
+	public Long getTimeStart() {
+		return timeStart;
 	}
 
-	public void setTime(Long time) {
-		this.time = time;
+	public void setTimeStart(Long timeStart) {
+		this.timeStart = timeStart;
+	}
+
+	public Long getTimeFinish() {
+		return timeFinish;
+	}
+
+	public void setTimeFinish(Long timeFinish) {
+		this.timeFinish = timeFinish;
+	}
+	
+	public Rank getRank() {
+		return rank;
+	}
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
+
+	public void generateTimeSecs(Long timeStart, Long timeFinish) {
+		Long diffLong = timeFinish - timeStart;
+		this.timeSecs = TimeUnit.MILLISECONDS.toSeconds(diffLong);
+		
+	}
+	
+	public String getTime() {
+		Long diffLong = timeFinish - timeStart;
+		Long minutes = TimeUnit.MILLISECONDS.toMinutes(diffLong);
+		Long seconds = TimeUnit.MILLISECONDS.toSeconds(diffLong) - (minutes * 60);
+		
+		StringBuilder diff = new StringBuilder();
+		diff.append(minutes.toString()).append("m");
+		diff.append(seconds.toString()).append("s");
+		return diff.toString();
 	}
 
 	@Override
@@ -93,5 +137,9 @@ public class Match implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Long getTimeSecs() {
+		return timeSecs;
 	}
 }
