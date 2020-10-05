@@ -53,7 +53,7 @@ public class MatchResource {
 	@RequestMapping(value="/finish", method=RequestMethod.GET)
 	public ResponseEntity<?> finish(@RequestParam(value="player") String player,
 			@RequestParam(value="page", defaultValue="0") Integer page,
-			@RequestParam(value="linesPerPage", defaultValue="5") Integer linesPerPage,
+			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage,
 			@RequestParam(value="orderBy", defaultValue="attemptsNum,timeStart") String orderBy,
 			@RequestParam(value="direction", defaultValue="DESC") String direction
 			) {
