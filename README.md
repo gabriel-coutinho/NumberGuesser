@@ -3,7 +3,7 @@ This app is the backend of a number guesser, think of a number between 1 and 100
 
 ### To acess the database:
 
-URL http://localhost:8080/h2-console:
+URL http://localhost:8080/h2-console: \n
 Fields on console:
 -Driver Class: org.h2.Driver
 -JDBC URL:	jdbc:h2:file:~/test
