@@ -45,9 +45,10 @@ public class MatchResource {
 	public ResponseEntity<?> insert(@Valid @RequestBody MatchNewDTO objDto) {
 		Match obj = service.fromNewDto(objDto);
 		obj = service.insert(obj);
+		MatchReturnDTO matchDto = new MatchReturnDTO(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
+		return ResponseEntity.created(uri).body(matchDto);
 	}
 	
 	@RequestMapping(value="/finish", method=RequestMethod.GET)
