@@ -14,7 +14,7 @@ $ Runing on http://localhost:8080
 ### To acess the database:
 
 Only when app is running <br />
-URL http://localhost:8080/h2-console <br />
+URL http://localhost:8080/h2-console <br /> <br />
 Fields on console: <br />
 -Driver Class: org.h2.Driver <br />
 -JDBC URL:	jdbc:h2:file:~/test <br />
