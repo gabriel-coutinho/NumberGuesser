@@ -49,9 +49,7 @@ public class MatchService {
 	}
 	
 	public boolean playerUnavailable(String player) {
-		Match match = null;
-		match = matchRepo.findByPlayer(player);
-		return !Objects.isNull(match);
+		return !matchRepo.getPlayer(player).isEmpty();
 	}
 
 	public Page<Match> getRank(Integer page, Integer linesPerPage, String orderBy, String direction) {

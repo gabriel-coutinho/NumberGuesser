@@ -13,7 +13,8 @@ import com.gabrielcoutinho.numberguesser.domain.Match;
 
 @Repository
 public interface MatchRepository extends JpaRepository<Match, Integer>{
-	Match findByPlayer(String player);
+	@Query("SELECT obj FROM Match obj WHERE obj.player LIKE %:player%")
+	List<Match> getPlayer(@Param("player") String player);
 	
 	@Query("SELECT obj FROM Match obj WHERE obj.id IN :idsRank")
 	Page<Match> getRank(@Param("idsRank") List<Integer> idsRank, Pageable pageRequest);
