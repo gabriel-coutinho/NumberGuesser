@@ -10,7 +10,27 @@ Start this app before your [frontend](https://github.com/gabriel-coutinho/Number
 ```shell
 $ Runing on http://localhost:8080
 ```
-Java EE 11
+
+## Technologies
+
+```shell
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-parent</artifactId>
+<version>2.4.0-SNAPSHOT</version>
+```
+```shell
+<java.version>11</java.version>
+```
+```shell
+<groupId>org.hibernate</groupId>
+<artifactId>hibernate-validator</artifactId>
+<version>6.0.13.Final</version>
+```
+```shell
+<groupId>com.h2database</groupId>
+<artifactId>h2</artifactId>
+<scope>runtime</scope>
+```
 
 ### To acess the database:
 
