@@ -36,7 +36,6 @@ public class MatchResource {
 	
 	@RequestMapping(value="/unavailable", method=RequestMethod.GET)
 	public ResponseEntity<?> isUnavailable(@RequestParam(value="player") String player) {
-		System.out.println(player);
 		boolean isUnavailable = service.playerUnavailable(player);
 		return ResponseEntity.ok().body(isUnavailable);
 	}

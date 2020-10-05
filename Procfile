@@ -1,1 +1,0 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/numberguesser-0.0.2-SNAPSHOT.jar
