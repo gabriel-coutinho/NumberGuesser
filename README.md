@@ -10,6 +10,7 @@ Start this app before your [frontend](https://github.com/gabriel-coutinho/Number
 ```shell
 $ Runing on http://localhost:8080
 ```
+Java EE 11
 
 ### To acess the database:
 
