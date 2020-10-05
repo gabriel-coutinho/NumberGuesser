@@ -70,8 +70,8 @@ public class MatchResource {
 			@RequestParam(value="orderBy", defaultValue="attemptsNum,timeStart") String orderBy,
 			@RequestParam(value="direction", defaultValue="DESC") String direction
 			) {
-		Page<Match> rank = service.getRankNew(page, linesPerPage, orderBy, direction);
+		Page<Match> rank = service.getRank(page, linesPerPage, orderBy, direction);
 		Page<MatchReturnDTO> rankDto = rank.map(obj -> new MatchReturnDTO(obj));
-		return ResponseEntity.ok().body(rankDto);
+		return ResponseEntity.ok(rankDto);
 	}
 }

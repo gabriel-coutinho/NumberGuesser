@@ -54,7 +54,7 @@ public class MatchService {
 		return !Objects.isNull(match);
 	}
 
-	public Page<Match> getRankNew(Integer page, Integer linesPerPage, String orderBy, String direction) {
+	public Page<Match> getRank(Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy.split(","));
 		List<Integer> idsRank = rankRepo.findAll().stream().map(obj -> obj.getMatch().getId()).collect(Collectors.toList());
 		return matchRepo.getRank(idsRank, pageRequest);
