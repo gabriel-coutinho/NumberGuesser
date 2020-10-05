@@ -13,12 +13,12 @@ $ Runing on http://localhost:8080
 
 ### To acess the database:
 
-Only when app is running
-URL http://localhost:8080/h2-console:
-Fields on console:
--Driver Class: org.h2.Driver
--JDBC URL:	jdbc:h2:file:~/test
--User Name: sa
+Only when app is running <br />
+URL http://localhost:8080/h2-console <br />
+Fields on console: <br />
+-Driver Class: org.h2.Driver <br />
+-JDBC URL:	jdbc:h2:file:~/test <br />
+-User Name: sa <br />
 -Password:
 
 
