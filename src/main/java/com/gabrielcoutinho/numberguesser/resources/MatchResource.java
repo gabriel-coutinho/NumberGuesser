@@ -72,6 +72,6 @@ public class MatchResource {
 			) {
 		Page<Match> rank = service.getRank(page, linesPerPage, orderBy, direction);
 		Page<MatchReturnDTO> rankDto = rank.map(obj -> new MatchReturnDTO(obj));
-		return ResponseEntity.ok(rankDto); 
+		return ResponseEntity.ok(rankDto);
 	}
 }
